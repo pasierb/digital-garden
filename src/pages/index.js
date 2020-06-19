@@ -1,21 +1,41 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link } from 'gatsby';
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import MyFavorite from '../components/my-favorite';
+import YourFavorite from '../components/your-favorite';
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+
+    <p>hey hey,</p>
+
+    <p>My name is Michał Pasierbski. I'm a software engineer at Amazon Web Services.</p>
+
+    <p>This website is my personal space where I dump my thoughts, mostly about engineering and self improvement.</p>
+
+    <p>You can find more of me at <a href="https://github.com/pasierb">github</a>, <a href="https://twitter.com/mpasierbski">twitter</a>, <a href="https://www.linkedin.com/in/mpasierbski/">linkedin</a> and <a href="https://www.instagram.com/mpasierbski/">instagram</a>.</p>
+
+    <div className="pure-g">
+      <div className="pure-u-1 pure-u-md-1-2">
+        <section>
+          <h3>Articles I like</h3>
+
+          <MyFavorite />
+        </section>
+      </div>
+      <div className="pure-u-1 pure-u-md-1-2">
+        <section>
+          <h3>Some of more popular ones</h3>
+
+          <YourFavorite />
+        </section>
+      </div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+
+    <Link className="pure-button" to="/articles/">Check all 🗒️</Link>
   </Layout>
 )
 

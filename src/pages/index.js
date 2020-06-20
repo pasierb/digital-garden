@@ -32,7 +32,7 @@ const IndexPage = () => (
       </div>
       <div className="pure-u-1 pure-u-md-1-2">
         <section>
-          <h3>Some of more popular ones</h3>
+          <h3>...and some you tend to like</h3>
 
           <YourFavorite />
         </section>

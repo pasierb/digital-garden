@@ -16,9 +16,11 @@ const ArticleLayout = ({ data: { mdx } }) => {
 
   return (
     <Layout>
-      <h1>{mdx.frontmatter.title}</h1>
+      <article>
+        <h1>{mdx.frontmatter.title}</h1>
 
-      <MDXRenderer>{mdx.body}</MDXRenderer>
+        <MDXRenderer>{mdx.body}</MDXRenderer>
+      </article>
     </Layout>
   )
 };

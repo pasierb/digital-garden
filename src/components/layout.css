@@ -20,7 +20,16 @@ header {
   justify-content: space-between;
 }
 
+main, footer {
+  padding: 1.5em;
+}
+
+code {
+  font-size: .8rem;
+}
+
 footer {
+  padding-top: 4rem;
   border-top: 1px solid var(--section-border-color);
 }
 
@@ -52,10 +61,6 @@ ul li {
   margin-bottom: .5em;
 }
 
-main, footer {
-  padding: 1.5em;
-}
-
 a {
   text-decoration: none;
   color: var(--primary-color);
@@ -63,6 +68,13 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+blockquote {
+  border-left: 7px solid var(--section-border-color);
+  font-style: italic;
+  margin-left: 0;
+  padding: .5em;
 }
 
 .pure-button {

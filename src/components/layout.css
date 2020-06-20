@@ -108,13 +108,18 @@ blockquote {
   overflow: hidden;
 }
 
+[data-reach-dialog-content] {
+  width: 90vw;
+  max-width: 880px;
+}
+
 [role="dialog"] {
   color: #fff;
   margin: 0 auto;
   max-width: 880px;
   height: 100vh;
   padding: 3em 1em;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: transparent;
 }
 
 [role="dialog"] .dialog-close {
@@ -128,4 +133,10 @@ blockquote {
 
 [role="dialog"] .dialog-close:hover {
   color: #ccc;
+}
+
+@media only screen and (max-width: 480px) {
+  header input {
+    width: 3.5em;
+  }
 }

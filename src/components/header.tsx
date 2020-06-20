@@ -25,7 +25,7 @@ const Header: FC<HeaderProps> = ({ siteTitle }) => {
                 <input
                   onChange={e => search(e.target.value)}
                   className="pure-input-rounded"
-                  placeholder="Search"
+                  placeholder="🔎 Search"
                 />
                 {/* <button className="pure-button button-small button-secondary" onClick={() => open()}>🔍 Search</button> */}
               </form>

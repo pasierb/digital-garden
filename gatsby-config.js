@@ -38,5 +38,21 @@ module.exports = {
         path: `${__dirname}/src/articles/`,
       },
     },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`title`, 'tags', 'summary', 'slug'],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          Mdx: {
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            summary: node => node.frontmatter.summary,
+            slug: node => node.frontmatter.slug
+          },
+        }
+      },
+    },
   ],
 }

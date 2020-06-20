@@ -9,6 +9,7 @@ import React from "react"
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from "gatsby"
 
+import { SearchProvider } from '../components/search';
 import Header from "./header"
 
 import "purecss/build/pure.css";
@@ -27,20 +28,25 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="container">
-      <Helmet>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-      </Helmet>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <main>
-        {children}
-      </main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
-    </div>
+    <SearchProvider>
+      <div className="container">
+        <Helmet>
+          <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+        </Helmet>
+
+        <Header siteTitle={data.site.siteMetadata.title} />
+
+        <main>
+          {children}
+        </main>
+
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
+    </SearchProvider>
   )
 }
 

@@ -5,6 +5,9 @@
 
   --primary-color: #c13e70;
   --primary-color-contrast: #fff;
+
+  --secondary-color: #eee;
+  --secondary-color-contrast: #555;
 }
 
 header {
@@ -56,4 +59,43 @@ a:hover {
 .pure-button {
   background-color: var(--primary-color);
   color: var(--primary-color-contrast);
+}
+
+.button-small {
+  font-size: 75%;
+}
+
+.button-secondary {
+  background-color: var(--secondary-color);
+  color: var(--secondary-color-contrast);
+  border-radius: 1em;
+  line-height: 1em;
+}
+
+[data-reach-dialog-overlay] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, .95);
+}
+
+[role="dialog"] {
+  margin: 0 auto;
+  max-width: 880px;
+  height: 100vh;
+  padding: 4em 1em;
+}
+
+[role="dialog"] .dialog-close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

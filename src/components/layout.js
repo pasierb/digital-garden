@@ -14,6 +14,7 @@ import Header from "./header"
 
 import "purecss/build/pure.css";
 import "purecss/build/grids-responsive.css";
+import "@reach/dialog/styles.css";
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -41,9 +42,7 @@ const Layout = ({ children }) => {
         </main>
 
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          Michal Pasierbski © {new Date().getFullYear()}, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     </SearchProvider>

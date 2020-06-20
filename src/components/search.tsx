@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, createContext } from 'react';
+import React, { FC, useState, useEffect, createContext, useRef } from 'react';
 import { Index } from 'elasticlunr';
 import { Link, StaticQuery, graphql } from "gatsby"
 import { Dialog } from '@reach/dialog';
@@ -7,6 +7,7 @@ interface SearchProps {
   searchIndex: any
   onClose: () => void
   isOpen: boolean
+  defaultTerm?: string
 }
 
 interface SearchDocument {
@@ -21,20 +22,29 @@ interface SearchContextValue {
   searchIndex: any
   open: () => void
   close: () => void
+  search: (term: string) => void
+  isOpen: boolean
 }
 
 interface SearchProviderProps {
 }
 
-const Search: FC<SearchProps> = ({ searchIndex, isOpen, onClose }) => {
+const Search: FC<SearchProps> = ({ searchIndex, isOpen, onClose, defaultTerm = '' }) => {
   const [index, setIndex] = useState<Index<SearchDocument>>();
   const [results, setResults] = useState<SearchDocument[]>([])
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const i = Index.load<SearchDocument>(searchIndex);
 
     setIndex(i);
   }, []);
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      inputRef.current?.focus();
+    });
+  }, [isOpen]);
 
   const handleSearch = (query: string) => {
     const r = index.search(query, {
@@ -50,12 +60,17 @@ const Search: FC<SearchProps> = ({ searchIndex, isOpen, onClose }) => {
 
   return (
     <Dialog isOpen={isOpen} onDismiss={() => onClose()}>
-      <button onClick={() => onClose()} className="pure-button button-small button-secondary dialog-close">✖️</button>
+      <button onClick={() => onClose()} className="pure-button button-secondary dialog-close">✖️</button>
 
       <h3>Search</h3>
 
       <form className="pure-form pure-g">
-        <input onChange={e => handleSearch(e.target.value)} className="pure-input pure-u-1" />
+        <input
+          ref={inputRef}
+          defaultValue={defaultTerm}
+          onChange={e => handleSearch(e.target.value)}
+          className="pure-input pure-u-1"
+        />
       </form>
 
       <ul>
@@ -72,13 +87,16 @@ const Search: FC<SearchProps> = ({ searchIndex, isOpen, onClose }) => {
 export const SearchContext = createContext<SearchContextValue>({
   searchIndex: null,
   open: () => {},
-  close: () => {}
+  close: () => {},
+  search: () => {},
+  isOpen: false
 });
 
 export const SearchConsumer = SearchContext.Consumer;
 
 export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [term, setTerm] = useState<string>("");
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -87,6 +105,11 @@ export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
   const handleClose = () => {
     setIsOpen(false);
   };
+
+  const handleSearch = (term: string) => {
+    setIsOpen(true);
+    setTerm(term);
+  }
 
   return (
     <StaticQuery
@@ -104,10 +127,17 @@ export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
           <SearchContext.Provider value={{
             searchIndex,
             open: handleOpen,
-            close: handleClose
+            close: handleClose,
+            search: handleSearch,
+            isOpen
           }}>
             {children}
-            <Search searchIndex={searchIndex} onClose={handleClose} isOpen={isOpen} />
+            <Search
+              searchIndex={searchIndex}
+              onClose={handleClose}
+              isOpen={isOpen}
+              defaultTerm={term}
+            />
           </SearchContext.Provider>
         );
       }}

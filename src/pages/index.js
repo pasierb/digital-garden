@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import MyFavorite from '../components/my-favorite';
 import YourFavorite from '../components/your-favorite';
+import Latest from '../components/latest';
 
 const IndexPage = () => (
   <Layout>
@@ -32,9 +33,16 @@ const IndexPage = () => (
       </div>
       <div className="pure-u-1 pure-u-md-1-2">
         <section>
-          <h3>...and some you tend to like</h3>
+          <h3>Others tend to read</h3>
 
           <YourFavorite />
+        </section>
+      </div>
+      <div className="pure-u-1 pure-u-md-1-2">
+        <section>
+          <h3>Recent</h3>
+
+          <Latest />
         </section>
       </div>
     </div>

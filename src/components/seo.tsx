@@ -1,6 +1,10 @@
 import React, { FC } from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { factory } from '../stencilbot';
+// import stencilbotConfig from '../../stencilbot.config.json';
+
+// const getTwitterImageUrl = factory(stencilbotConfig);
 
 interface SEOProps {
   title: string
@@ -82,6 +86,10 @@ const SEO: FC<SEOProps> = (props) => {
           name: `twitter:title`,
           content: title,
         },
+        // {
+        //   name: 'twitter:image',
+        //   content: getTwitterImageUrl(props)
+        // },
         {
           name: `twitter:description`,
           content: metaDescription,

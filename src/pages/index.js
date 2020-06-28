@@ -26,21 +26,14 @@ const IndexPage = () => (
     <div className="pure-g">
       <div className="pure-u-1 pure-u-md-1-2">
         <section>
-          <h3>Articles I like</h3>
+          <h3>My favorites</h3>
 
           <MyFavorite />
         </section>
       </div>
       <div className="pure-u-1 pure-u-md-1-2">
         <section>
-          <h3>Others tend to read</h3>
-
-          <YourFavorite />
-        </section>
-      </div>
-      <div className="pure-u-1 pure-u-md-1-2">
-        <section>
-          <h3>Recent</h3>
+          <h3>Latest</h3>
 
           <Latest />
         </section>

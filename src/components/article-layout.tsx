@@ -14,6 +14,7 @@ interface ArticleLayoutData {
     frontmatter: {
       title: string
       summary?: string
+      stencilbot?: string
     }
   }
 }
@@ -28,11 +29,11 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({ data: { mdx } }) => {
   }, []);
 
   const { excerpt } = mdx;
-  const { title, summary } = mdx.frontmatter;
+  const { title, summary, stencilbot } = mdx.frontmatter;
 
   return (
     <Layout>
-      <SEO title={title} description={summary || excerpt} />
+      <SEO title={title} description={summary || excerpt} stencilbot={stencilbot} />
 
       <article>
         <h1>{mdx.frontmatter.title}</h1>
@@ -51,6 +52,8 @@ export const pageQuery = graphql`
       excerpt
       frontmatter {
         title
+        stencilbot
+        summary
       }
     }
   }

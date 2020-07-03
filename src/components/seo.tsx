@@ -78,6 +78,10 @@ const SEO: FC<SEOProps> = (props) => {
       content: site.siteMetadata.author,
     },
     {
+      name: `author`,
+      content: site.siteMetadata.author,
+    },
+    {
       name: `twitter:title`,
       content: title,
     },

@@ -92,7 +92,7 @@ const SEO: FC<SEOProps> = (props) => {
       name: 'twitter:image',
       content: ogImage
     }, {
-      name: 'og:image',
+      property: 'og:image',
       content: ogImage
     });
   }

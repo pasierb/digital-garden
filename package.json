@@ -20,7 +20,7 @@
     "gatsby-plugin-sharp": "^2.6.11",
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-sharp": "^2.5.5",
-    "highlight.js": "^10.1.1",
+    "highlight.js": "^10.1.2",
     "prop-types": "^15.7.2",
     "purecss": "^2.0.3",
     "react": "^16.12.0",

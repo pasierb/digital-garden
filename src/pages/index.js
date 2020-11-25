@@ -13,7 +13,7 @@ const IndexPage = () => (
 
     <p>hey hey,</p>
 
-    <p>My name is Michał Pasierbski. I'm a software engineer at Amazon Web Services.</p>
+    <p>My name is Michał Pasierbski. I'm a software engineer at Amazon Web Services (opinions are my own).</p>
 
     <p>
       This website is my personal space where I dump thoughts, mostly about engineering and self improvement.

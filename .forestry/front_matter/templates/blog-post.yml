@@ -8,6 +8,9 @@ fields:
 - type: datetime
   name: date
   label: date
+- type: text
+  name: slug
+  label: slug
 - type: textarea
   name: summary
   label: summary
@@ -15,20 +18,5 @@ fields:
   name: tags
   label: tags
 - type: list
-  name: categories
-  label: categories
-- type: boolean
-  name: comments
-  label: comments
-- type: list
   name: images
   label: images
-- type: text
-  name: slug
-  label: slug
-- type: list
-  name: promoted
-  label: promoted
-- type: text
-  name: stencilbot
-  label: stencilbot

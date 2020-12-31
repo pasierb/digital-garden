@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^2.3.11",
     "gatsby-transformer-remark": "^2.13.1",
     "gatsby-transformer-sharp": "^2.5.5",
-    "highlight.js": "^10.1.1",
+    "highlight.js": "^10.4.1",
     "prismjs": "^1.22.0",
     "prop-types": "^15.7.2",
     "purecss": "^2.0.3",

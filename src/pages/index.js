@@ -1,11 +1,8 @@
 import React from "react"
-import { Link } from 'gatsby';
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import MyFavorite from '../components/my-favorite';
-import YourFavorite from '../components/your-favorite';
-import Latest from '../components/latest';
+import AllArticles from '../components/all-articles';
 
 const IndexPage = () => (
   <Layout>
@@ -23,24 +20,11 @@ const IndexPage = () => (
 
     <p>You can find more of me at <a href="https://github.com/pasierb">github</a>, <a href="https://twitter.com/mpasierbski">twitter</a>, <a href="https://www.linkedin.com/in/mpasierbski/">linkedin</a> and <a href="https://www.instagram.com/mpasierbski/">instagram</a>.</p>
 
-    <div className="pure-g">
-      <div className="pure-u-1 pure-u-md-1-2">
-        <section>
-          <h3>My favorites</h3>
+    <h2>Articles</h2>
 
-          <MyFavorite />
-        </section>
-      </div>
-      <div className="pure-u-1 pure-u-md-1-2">
-        <section>
-          <h3>Latest</h3>
-
-          <Latest />
-        </section>
-      </div>
-    </div>
-
-    <Link className="pure-button" to="/articles/">Check all 🗒️</Link>
+    <section>
+      <AllArticles />
+    </section>
   </Layout>
 )
 

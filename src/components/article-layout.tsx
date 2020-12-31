@@ -1,15 +1,12 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { graphql, PageProps } from "gatsby"
-// import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 import SEO from './seo';
 import Layout from './layout';
-import { hljs } from '../highlight';
 
 interface ArticleLayoutData {
-  mdx: {
+  markdownRemark: {
     id: string
-    body: any
+    html: any
     excerpt: string
     frontmatter: {
       title: string
@@ -19,26 +16,18 @@ interface ArticleLayoutData {
   }
 }
 
-const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({ data: { mdx } }) => {
-  useEffect(() => {
-    const codeNodes = document.querySelectorAll('code');
-
-    for (let node of codeNodes) {
-      hljs.highlightBlock(node);
-    }
-  }, []);
-
-  const { excerpt } = mdx;
-  const { title, summary, stencilbot } = mdx.frontmatter;
+const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({ data: { markdownRemark } }) => {
+  const { excerpt } = markdownRemark;
+  const { title, summary, stencilbot } = markdownRemark.frontmatter;
 
   return (
     <Layout>
       <SEO title={title} description={summary || excerpt} stencilbot={stencilbot} />
 
       <article>
-        <h1>{mdx.frontmatter.title}</h1>
+        <h1>{markdownRemark.frontmatter.title}</h1>
 
-        <MDXRenderer>{mdx.body}</MDXRenderer>
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
       </article>
     </Layout>
   )
@@ -46,9 +35,9 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({ data: { mdx } }) => {
 
 export const pageQuery = graphql`
   query ArticleQuery($id: String) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       id
-      body
+      html
       excerpt
       frontmatter {
         title

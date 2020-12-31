@@ -7,7 +7,7 @@ const LatestArticles = () => {
       <StaticQuery
         query={graphql`
           query LatestArticles {
-            latestArticles: allMdx(
+            latestArticles: allMarkdownRemark(
               limit: 5,
               sort: { fields: frontmatter___date, order: DESC }
             ) {

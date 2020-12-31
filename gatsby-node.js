@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMdx {
+      allMarkdownRemark {
         edges {
           node {
             id
@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   // Create blog post pages.
-  const posts = result.data.allMdx.edges
+  const posts = result.data.allMarkdownRemark.edges
 
   // you'll call `createPage` for each result
   posts.forEach(({ node }, index) => {

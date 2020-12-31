@@ -7,7 +7,7 @@ const YourFavorite = () => {
       <StaticQuery
         query={graphql`
           query YourPromotedArticles {
-            yourFav: allMdx(
+            yourFav: allMarkdownRemark(
               limit: 10,
               sort: { fields: frontmatter___date, order: DESC },
               filter: {

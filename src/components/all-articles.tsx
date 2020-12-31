@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 const MyFavorite = () => {
   const data = useStaticQuery(graphql`
     query AllArticlesComponent {
-      myFav: allMdx(
+      myFav: allMarkdownRemark(
         limit: 10
         sort: { fields: frontmatter___date, order: DESC }
       ) {

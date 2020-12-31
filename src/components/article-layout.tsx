@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from "react"
 import { graphql, PageProps } from "gatsby"
-import SEO from './seo';
-import Layout from './layout';
+import SEO from "./seo"
+import Layout from "./layout"
 
 interface ArticleLayoutData {
   markdownRemark: {
@@ -16,13 +16,19 @@ interface ArticleLayoutData {
   }
 }
 
-const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({ data: { markdownRemark } }) => {
-  const { excerpt } = markdownRemark;
-  const { title, summary, stencilbot } = markdownRemark.frontmatter;
+const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
+  data: { markdownRemark },
+}) => {
+  const { excerpt } = markdownRemark
+  const { title, summary, stencilbot } = markdownRemark.frontmatter
 
   return (
     <Layout>
-      <SEO title={title} description={summary || excerpt} stencilbot={stencilbot} />
+      <SEO
+        title={title}
+        description={summary || excerpt}
+        stencilbot={stencilbot}
+      />
 
       <article>
         <h1>{markdownRemark.frontmatter.title}</h1>
@@ -31,7 +37,7 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({ data: { markdownRemar
       </article>
     </Layout>
   )
-};
+}
 
 export const pageQuery = graphql`
   query ArticleQuery($id: String) {
@@ -46,6 +52,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default ArticleLayout;
+export default ArticleLayout

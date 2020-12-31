@@ -4,13 +4,13 @@ date: 2019-01-24
 slug: "/post/2019-01-24-2019-01-24-congratulations-you-are-now-a-google-certified-mobile-web-specialist/"
 summary: "!Let me explain **why** I took the exam, **how** does it work and **what** can you expect from it."
 tags:
-- google
-- certificates
+  - google
+  - certificates
 categories:
-- career
+  - career
 comments: true
 promoted:
-- my
+  - my
 ---
 
 ![badge](/images/google_mobile_web_badge.png)[^1]
@@ -29,7 +29,7 @@ b) it's Google
 
 c) I was sick, laying in bed bored as hell...
 
-I compulsively bought a pass (it costs 99$).
+I compulsively bought a pass (it costs 99\$).
 
 ## What (can you expect)?
 

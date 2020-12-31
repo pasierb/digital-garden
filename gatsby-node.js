@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     }
-  `);
+  `)
 
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
@@ -34,7 +34,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // you'll call `createPage` for each result
   posts.forEach(({ node }, index) => {
-    const slug = node.frontmatter.slug?.trim() || node.frontmatter.title.toLowerCase().replace(/\W+/, '-')
+    const slug =
+      node.frontmatter.slug?.trim() ||
+      node.frontmatter.title.toLowerCase().replace(/\W+/, "-")
 
     createPage({
       // This is the slug you created before

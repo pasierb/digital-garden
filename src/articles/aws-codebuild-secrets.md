@@ -3,16 +3,16 @@ title: "🔑 How to handle secrets in AWS Codebuild"
 date: 2020-05-23
 summary: "Where to store passwords, tokens, credentials and other sensitive data? How to make it available for Codebuild project?"
 tags:
-- aws
-- amazon
+  - aws
+  - amazon
 categories:
-- devops
+  - devops
 comments: true
 images:
-- https://cdn.stencilbot.io/project?w=800&h=400&0.img=https%3A%2F%2Fmpasierbski.com%2Fimages%2Fblog-aws-header-bg.png&1.x=50&1.w=300&1.imgFit=contain&1.img=https%3A%2F%2Fmpasierbski.com%2Fimages%2Faws-cdk-text-logo.png&2.x=360&2.w=370&2.txt=How%20to%20handle%20secrets%20in%20AWS%20Codebuild&2.color=%233e3838&2.fontSize=40&2.font=Ubuntu%3A700&2.lineH=1.1&2.txtAlign=center&2.valign=middle
+  - https://cdn.stencilbot.io/project?w=800&h=400&0.img=https%3A%2F%2Fmpasierbski.com%2Fimages%2Fblog-aws-header-bg.png&1.x=50&1.w=300&1.imgFit=contain&1.img=https%3A%2F%2Fmpasierbski.com%2Fimages%2Faws-cdk-text-logo.png&2.x=360&2.w=370&2.txt=How%20to%20handle%20secrets%20in%20AWS%20Codebuild&2.color=%233e3838&2.fontSize=40&2.font=Ubuntu%3A700&2.lineH=1.1&2.txtAlign=center&2.valign=middle
 slug: "/post/aws-codebuild-secrets/"
 promoted:
-- my
+  - my
 stencilbot: awscdk
 ---
 
@@ -35,7 +35,7 @@ You could set secrets as environment variables directly in CodeBuild. This works
 
 AWS has a service to securely store passwords, tokens, credentials or any other sensitive data - [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/). Fortunately Secrets Manager integrates seamlessly with CodeBuild through a `buildspec` file.
 
-Values from Secrets Manager can be mapped out to environment variables that will be available through all build project phases. 
+Values from Secrets Manager can be mapped out to environment variables that will be available through all build project phases.
 
 ```yaml
 env:
@@ -84,4 +84,4 @@ phases:
 
 For more details about `buildspec` check [official documentation](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#secrets-manager-build-spec).
 
-__NOTE:__ Of course IAM role associated with CodeBuild project has to have [sufficient permissions to access secrets](https://docs.aws.amazon.com/mediaconnect/latest/ug/iam-policy-examples-asm-secrets.html)
+**NOTE:** Of course IAM role associated with CodeBuild project has to have [sufficient permissions to access secrets](https://docs.aws.amazon.com/mediaconnect/latest/ug/iam-policy-examples-asm-secrets.html)

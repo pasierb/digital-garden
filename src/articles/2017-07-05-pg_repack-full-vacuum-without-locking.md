@@ -4,11 +4,11 @@ date: 2017-07-05
 comments: true
 slug: "/post/2017-07-05-pg_repack-full-vacuum-without-locking/"
 promoted:
-- your
+  - your
 ---
 
-In __PostgreSQL__, an UPDATE or DELETE of a row does not immediately remove the old version of the row.
-If you have application that does this massive batch UPDATEs or DELETEs your database can __grow in size pretty quickly__.
+In **PostgreSQL**, an UPDATE or DELETE of a row does not immediately remove the old version of the row.
+If you have application that does this massive batch UPDATEs or DELETEs your database can **grow in size pretty quickly**.
 
 <!--more-->
 
@@ -16,25 +16,25 @@ At [ISE][ise_website] we develop plant performance monitoring application which 
 This "minute-by-minute" data is later compressed into hourly slots.
 This process involves massive DELETE operations every hour.
 
-To reclaim disk space you need __FULL VACUUM__, but it __locks tables__ which is a huge "no no" in 24-7-365 industry monitoring application.
+To reclaim disk space you need **FULL VACUUM**, but it **locks tables** which is a huge "no no" in 24-7-365 industry monitoring application.
 
-__[pg_repack][pg_repack]__ is a PostgreSQL extension tool that can do pretty much what FULL VACUUM does __without locking__ (minimum locking to be precise).
+**[pg_repack][pg_repack]** is a PostgreSQL extension tool that can do pretty much what FULL VACUUM does **without locking** (minimum locking to be precise).
 
 ## Installation
 
 You can install from [source][pg_repack_source] or through pgxn.
 
-~~~ bash
+```bash
 apt-get install pgxnclient postgresql-server-dev-all
 pgxn install pg_repack
 psql -c "CREATE EXTENSION pg_repack" -d YOUR_DB_NAME -U postgres
-~~~
+```
 
 ## Usage
 
-~~~ bash
+```bash
 /usr/lib/postgresql/9.x/bin/pg_repack -d YOUR_DB_NAME -U postgres
-~~~
+```
 
 ## Notes
 
@@ -46,11 +46,11 @@ P.S.
 Of course it does not mean that you should abbandon your regulary scheduled vacuumimg and reindexing!
 
 ### Sources:
+
 - [PostgreSQL rutine vacuuming documentation][postgresql_rutine_vacuuming]
 - [PostgreSQL vacuum documentation][postgresql_vacuum]
 - [pg_repack github project][pg_repack]
 - [pg_repack pgxn site][pg_repack_source]
-
 
 [ise_website]: http://http://isengineering.com/
 [pg_repack]: https://github.com/reorg/pg_repack

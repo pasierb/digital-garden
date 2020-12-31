@@ -1,24 +1,26 @@
-import React, { FC, useRef } from 'react';
-import { Link } from 'gatsby';
-import { SearchConsumer } from './search';
+import React, { FC, useRef } from "react"
+import { Link } from "gatsby"
+import { SearchConsumer } from "./search"
 
 interface HeaderProps {
   siteTitle: string
 }
 
 const Header: FC<HeaderProps> = ({ siteTitle }) => {
-  const searchFormRef = useRef<HTMLFormElement>(null);
+  const searchFormRef = useRef<HTMLFormElement>(null)
 
   return (
     <SearchConsumer>
       {({ open, search, isOpen }) => {
         if (!isOpen) {
-          searchFormRef.current?.reset();
+          searchFormRef.current?.reset()
         }
 
         return (
           <header>
-            <Link to="/" className="brand">{siteTitle}</Link>
+            <Link to="/" className="brand">
+              {siteTitle}
+            </Link>
 
             <nav>
               <form className="pure-form" ref={searchFormRef}>
@@ -31,10 +33,10 @@ const Header: FC<HeaderProps> = ({ siteTitle }) => {
               </form>
             </nav>
           </header>
-        );
+        )
       }}
     </SearchConsumer>
-  );
+  )
 }
 
 export default Header

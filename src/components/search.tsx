@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect, createContext, useRef } from 'react';
-import { Index } from 'elasticlunr';
+import React, { FC, useState, useEffect, createContext, useRef } from "react"
+import { Index } from "elasticlunr"
 import { Link, StaticQuery, graphql } from "gatsby"
-import { Dialog } from '@reach/dialog';
+import { Dialog } from "@reach/dialog"
 
 interface SearchProps {
   searchIndex: any
@@ -26,41 +26,52 @@ interface SearchContextValue {
   isOpen: boolean
 }
 
-interface SearchProviderProps {
-}
+interface SearchProviderProps {}
 
-const Search: FC<SearchProps> = ({ searchIndex, isOpen, onClose, defaultTerm = '' }) => {
-  const [index, setIndex] = useState<Index<SearchDocument>>();
+const Search: FC<SearchProps> = ({
+  searchIndex,
+  isOpen,
+  onClose,
+  defaultTerm = "",
+}) => {
+  const [index, setIndex] = useState<Index<SearchDocument>>()
   const [results, setResults] = useState<SearchDocument[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    const i = Index.load<SearchDocument>(searchIndex);
+    const i = Index.load<SearchDocument>(searchIndex)
 
-    setIndex(i);
-  }, []);
+    setIndex(i)
+  }, [])
 
   useEffect(() => {
     requestAnimationFrame(() => {
-      inputRef.current?.focus();
-    });
-  }, [isOpen]);
+      inputRef.current?.focus()
+    })
+  }, [isOpen])
 
   const handleSearch = (query: string) => {
-    const r = index.search(query, {
-      fields: {
-        title: { expand: true },
-        summary: { expand: true },
-        tags: { expand: true }
-      }
-    }).map(({ ref }) => index.documentStore.getDoc(ref));
+    const r = index
+      .search(query, {
+        fields: {
+          title: { expand: true },
+          summary: { expand: true },
+          tags: { expand: true },
+        },
+      })
+      .map(({ ref }) => index.documentStore.getDoc(ref))
 
-    setResults(r);
+    setResults(r)
   }
 
   return (
     <Dialog isOpen={isOpen} onDismiss={() => onClose()}>
-      <button onClick={() => onClose()} className="pure-button button-secondary dialog-close">✖️</button>
+      <button
+        onClick={() => onClose()}
+        className="pure-button button-secondary dialog-close"
+      >
+        ✖️
+      </button>
 
       <h3>Search</h3>
 
@@ -81,7 +92,7 @@ const Search: FC<SearchProps> = ({ searchIndex, isOpen, onClose, defaultTerm = '
         ))}
       </ul>
     </Dialog>
-  );
+  )
 }
 
 export const SearchContext = createContext<SearchContextValue>({
@@ -89,26 +100,26 @@ export const SearchContext = createContext<SearchContextValue>({
   open: () => {},
   close: () => {},
   search: () => {},
-  isOpen: false
-});
+  isOpen: false,
+})
 
-export const SearchConsumer = SearchContext.Consumer;
+export const SearchConsumer = SearchContext.Consumer
 
 export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [term, setTerm] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [term, setTerm] = useState<string>("")
 
   const handleOpen = () => {
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   const handleClose = () => {
-    setIsOpen(false);
-  };
+    setIsOpen(false)
+  }
 
   const handleSearch = (term: string) => {
-    setIsOpen(true);
-    setTerm(term);
+    setIsOpen(true)
+    setTerm(term)
   }
 
   return (
@@ -121,16 +132,18 @@ export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
         }
       `}
       render={data => {
-        const searchIndex = data.siteSearchIndex.index;
+        const searchIndex = data.siteSearchIndex.index
 
         return (
-          <SearchContext.Provider value={{
-            searchIndex,
-            open: handleOpen,
-            close: handleClose,
-            search: handleSearch,
-            isOpen
-          }}>
+          <SearchContext.Provider
+            value={{
+              searchIndex,
+              open: handleOpen,
+              close: handleClose,
+              search: handleSearch,
+              isOpen,
+            }}
+          >
             {children}
             <Search
               searchIndex={searchIndex}
@@ -139,10 +152,10 @@ export const SearchProvider: FC<SearchProviderProps> = ({ children }) => {
               defaultTerm={term}
             />
           </SearchContext.Provider>
-        );
+        )
       }}
     />
-  );
+  )
 }
 
-export default Search;
+export default Search

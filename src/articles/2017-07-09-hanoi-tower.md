@@ -3,9 +3,9 @@ title: "Algorithms day 1 - Hanoi towers"
 date: 2017-07-09
 comments: true
 categories:
-- algorithms
+  - algorithms
 tags:
-- ruby
+  - ruby
 slug: "/post/2017-07-09-hanoi-tower/"
 ---
 
@@ -14,8 +14,9 @@ To undetstand recursion, You must first undestand recursion
 <!--more-->
 
 > The Tower of Hanoi (also called the Tower of Brahma or Lucas' Tower[1] and sometimes pluralized) is a mathematical game or puzzle. It consists of three rods and a number of disks of different sizes, which can slide onto any rod.  
-The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.  
-The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:
+> The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.  
+> The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:
+
 - Only one disk can be moved at a time.
 - Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
 - No disk may be placed on top of a smaller disk.
@@ -33,6 +34,7 @@ A B C
 ```
 
 This is trivial case (yet important) case. We need just on move:
+
 1. "1" from A to C
 
 ### Height = 2
@@ -45,6 +47,7 @@ A B C
 ```
 
 With only 2 blocks problem get much more complicated comparing to 1.
+
 1. "1" from A to B
 2. "2" from A to C
 3. "1" from B to C
@@ -69,7 +72,8 @@ A B C
 
 ## Breakdown
 
-Let's say that "n" is our tower height and  A,B,C are our tower names, we can breakdown solution as following:
+Let's say that "n" is our tower height and A,B,C are our tower names, we can breakdown solution as following:
+
 1. Move all but largest block (n-1) from A to C using B
 2. Move largest block from A to C
 3. Move all but largest block (n-1) from B to A using C
@@ -100,6 +104,7 @@ You can find full solution at [github][code]
 Next is "Matrix chain multiplication"
 
 ### Sources:
+
 - [Wikipedia][wiki]
 
 [wiki]: https://en.wikipedia.org/wiki/Tower_of_Hanoi

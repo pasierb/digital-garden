@@ -4,26 +4,26 @@ comments: true
 title: "Cloudflare: Workers KV caveats"
 summary: 'At [EF Education First](https://www.ef.com/wwen/ "EF Education First homepage") we migrated some functionality from monolith application to Cloudflare worker. Part of it was figuring out how to use existing data (stored in DynamoDB) in the worker. Worker KV seemed like a perfect tool for the job.'
 tags:
-- web
-- performance
-- cdn
-- cloudflare
+  - web
+  - performance
+  - cdn
+  - cloudflare
 slug: "/post/2019-11-17-cloudflare-workers-kv-caveats/"
 promoted:
-- my
-- your
+  - my
+  - your
 ---
+
 ![](/images/cf_kv-banner.png)[^1]
 
 > Workers KV is a global, low-latency, key-value data store. It supports exceptionally high read volumes with low-latency, making it possible to build highly dynamic APIs and websites which respond as quickly as a cached static file would. [^2]
 
-
 At [EF Education First](https://www.ef.com/wwen/ "EF Education First homepage") we migrated some functionality from monolith application to Cloudflare worker. Part of it was figuring out how to use existing data (stored in DynamoDB) in the worker. Worker KV seemed like a perfect tool for the job:
 
-* key-value store
-* low-latency reads
-* high availability
-* Worker API
+- key-value store
+- low-latency reads
+- high availability
+- Worker API
 
 After a couple of months of development, couple production releases and number of hours worth of debugging these are caveats I discovered.
 
@@ -46,7 +46,6 @@ Put your data as a JSON on some publicly accessible origin and [cache it](https:
 ## "Cold cache" is slow and frequent
 
 > Workers KV read performance is determined by the amount of read-volume a given key receives. Maximum performance for a key is not reached unless that key is being read at least a couple times per minute in any given data center. [^3]
-
 
 I saw response times for `NAMESPACE.get(key)` taking as long as \~500ms at times from Zurich edge location. It was not that big of a problem on North America, so we reached out to support asking about the slow response times:
 

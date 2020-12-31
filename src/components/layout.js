@@ -6,15 +6,15 @@
  */
 
 import React from "react"
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { SearchProvider } from '../components/search';
+import { SearchProvider } from "../components/search"
 import Header from "./header"
 
-import "purecss/build/pure.css";
-import "purecss/build/grids-responsive.css";
-import "@reach/dialog/styles.css";
+import "purecss/build/pure.css"
+import "purecss/build/grids-responsive.css"
+import "@reach/dialog/styles.css"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -32,17 +32,19 @@ const Layout = ({ children }) => {
     <SearchProvider>
       <div className="container">
         <Helmet>
-          <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+            rel="stylesheet"
+          />
         </Helmet>
 
         <Header siteTitle={data.site.siteMetadata.title} />
 
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
 
         <footer>
-          Michal Pasierbski © {new Date().getFullYear()}, Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+          Michal Pasierbski © {new Date().getFullYear()}, Built with{" "}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     </SearchProvider>

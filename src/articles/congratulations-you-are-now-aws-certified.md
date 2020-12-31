@@ -1,16 +1,17 @@
 ---
 title: '"Congratulations, You are Now AWS Certified!"'
 date: 2020-05-09
-summary: 'Going through the “AWS Solutions Architect - associate” certificate gives a great overview of the whole platform. You may not necessarily know how to set up a corporate network, but you will definitely know what’s possible and where to start.'
+summary: "Going through the “AWS Solutions Architect - associate” certificate gives a great overview of the whole platform. You may not necessarily know how to set up a corporate network, but you will definitely know what’s possible and where to start."
 comments: true
 tags:
-- aws
-- amazon
-- certificates
+  - aws
+  - amazon
+  - certificates
 categories:
-- career
+  - career
 slug: "/post/congratulations-you-are-now-aws-certified/"
 ---
+
 > Hi Michal Pasierbski,
 >
 > Congratulations! You have successfully completed the requirements for the AWS Certified Solutions Architect - Associate certification. This certification, and all associated benefits will be valid through Dec 02, 2022.
@@ -31,8 +32,8 @@ I didn't have much exposure to the cloud providers before - started my career be
 
 The interwebs were pretty clear about recommendations at the time:
 
-* [Linux Academy](https://linuxacademy.com/), or
-* [A Cloud guru](https://acloud.guru/)
+- [Linux Academy](https://linuxacademy.com/), or
+- [A Cloud guru](https://acloud.guru/)
 
 I went with Linux academy mainly because if their hands-on labs. It's a great feature if you want to get some practice in a real environment without risking getting into costs.
 
@@ -56,4 +57,4 @@ Equipped with new skills I managed to help my team with infrastructure and DevOp
 
 Four months later I interviewed with Amazon AWS for a Software Engineer (Backend, SDE2) position. I'm not sure if having a certificate helped, but the knowledge I gained helped tremendously during my systems design interview portion. I managed not only to provide an answer to the question but also to name AWS services that I could use.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I super excited to announce that I will be joining <a href="https://twitter.com/awscloud?ref_src=twsrc%5Etfw">@awscloud</a> in <a href="https://twitter.com/hashtag/Berlin?src=hash&ref_src=twsrc%5Etfw">#Berlin</a> this August! Can not wait 🥳</p>— Michal Pasierbski 🇵🇱🏠🇨🇭 (@mpasierbski) <a href="https://twitter.com/mpasierbski/status/1245752718662172673?ref_src=twsrc%5Etfw">April 2, 2020</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I super excited to announce that I will be joining <a href="https://twitter.com/awscloud?ref_src=twsrc%5Etfw">@awscloud</a> in <a href="https://twitter.com/hashtag/Berlin?src=hash&ref_src=twsrc%5Etfw">#Berlin</a> this August! Can not wait 🥳</p>— Michal Pasierbski 🇵🇱🏠🇨🇭 (@mpasierbski) <a href="https://twitter.com/mpasierbski/status/1245752718662172673?ref_src=twsrc%5Etfw">April 2, 2020</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

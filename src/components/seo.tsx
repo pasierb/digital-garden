@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { factory } from '../stencilbot';
-import stencilbotConfig from '../../stencilbot.config.json';
+import { factory } from "../stencilbot"
+import stencilbotConfig from "../../stencilbot.config.json"
 
-const getOpenGraphImage = factory(stencilbotConfig);
+const getOpenGraphImage = factory(stencilbotConfig)
 
 interface SEOProps {
   title: string
@@ -27,14 +27,8 @@ type SEOQueryData = {
   }
 }
 
-const SEO: FC<SEOProps> = (props) => {
-  const {
-    title,
-    description,
-    stencilbot,
-    lang = 'en',
-    meta = []
-  } = props;
+const SEO: FC<SEOProps> = props => {
+  const { title, description, stencilbot, lang = "en", meta = [] } = props
 
   const { site } = useStaticQuery<SEOQueryData>(
     graphql`
@@ -48,7 +42,7 @@ const SEO: FC<SEOProps> = (props) => {
         }
       }
     `
-  );
+  )
   const ogImage = getOpenGraphImage({ title, stencilbot })
   const metaDescription = description || site.siteMetadata.description
 
@@ -88,17 +82,20 @@ const SEO: FC<SEOProps> = (props) => {
     {
       name: `twitter:description`,
       content: metaDescription,
-    }
-  ];
+    },
+  ]
 
   if (ogImage) {
-    metaTagsData.push({
-      name: 'twitter:image',
-      content: ogImage
-    }, {
-      property: 'og:image',
-      content: ogImage
-    });
+    metaTagsData.push(
+      {
+        name: "twitter:image",
+        content: ogImage,
+      },
+      {
+        property: "og:image",
+        content: ogImage,
+      }
+    )
   }
 
   return (

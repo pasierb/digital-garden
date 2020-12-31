@@ -42,16 +42,16 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`, 'tags', 'summary', 'slug'],
+        fields: [`title`, "tags", "summary", "slug"],
         // How to resolve each field`s value for a supported node type
         resolvers: {
-          Mdx: {
+          MarkdownRemark: {
             title: node => node.frontmatter.title,
             tags: node => node.frontmatter.tags,
             summary: node => node.frontmatter.summary,
-            slug: node => node.frontmatter.slug
+            slug: node => node.frontmatter.slug,
           },
-        }
+        },
       },
     },
     {
@@ -142,8 +142,8 @@ module.exports = {
         // Delays sending pageview hits on route update (in milliseconds)
         pageTransitionDelay: 0,
         // Defers execution of google analytics script after page load
-        defer: false
+        defer: false,
       },
-    }
+    },
   ],
 }

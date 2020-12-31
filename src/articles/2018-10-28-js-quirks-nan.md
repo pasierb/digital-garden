@@ -2,13 +2,13 @@
 title: "JS Quirks: NaN"
 date: 2018-10-28
 comments: true
-summary: JavaScript has many weird quirks, but `NaN` is, by far, my favourite. 
+summary: JavaScript has many weird quirks, but `NaN` is, by far, my favourite.
 categories:
-- javascript
+  - javascript
 slug: "/post/2018-10-28-js-quirks-nan/"
 ---
 
-JavaScript has many weird quirks, but `NaN` is, by far, my favourite. 
+JavaScript has many weird quirks, but `NaN` is, by far, my favourite.
 
 <!--more-->
 

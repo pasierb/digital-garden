@@ -34,10 +34,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // you'll call `createPage` for each result
   posts.forEach(({ node }, index) => {
+    const slug = node.frontmatter.slug?.trim() || node.frontmatter.title.toLowerCase().replace(/\W+/, '-')
+
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
-      path: node.frontmatter.slug,
+      path: slug,
       // This component will wrap our MDX content
       component: path.resolve(`./src/components/article-layout.tsx`),
       // You can use the values in this context in

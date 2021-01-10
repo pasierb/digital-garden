@@ -4,8 +4,8 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 const MyFavorite = () => {
   const data = useStaticQuery(graphql`
     query AllArticlesComponent {
-      myFav: allMarkdownRemark(
-        limit: 10
+      articles: allMarkdownRemark(
+        limit: 100
         sort: { fields: frontmatter___date, order: DESC }
       ) {
         edges {
@@ -23,7 +23,7 @@ const MyFavorite = () => {
 
   return (
     <ul>
-      {data.myFav.edges.map(edge => (
+      {data.articles.edges.map(edge => (
         <li key={edge.node.id}>
           <Link to={edge.node.frontmatter.slug}>
             {edge.node.frontmatter.title}

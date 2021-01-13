@@ -91,6 +91,11 @@ blockquote {
   font-size: 75%;
 }
 
+time {
+  color: var(--secondary-color-contrast);
+  white-space: nowrap;
+}
+
 .button-secondary {
   background-color: var(--secondary-color);
   color: var(--secondary-color-contrast);

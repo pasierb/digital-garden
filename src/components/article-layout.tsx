@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { graphql, PageProps } from "gatsby"
 import SEO from "./seo"
 import Layout from "./layout"
-
+import Time from "./time";
 interface ArticleLayoutData {
   markdownRemark: {
     id: string
@@ -10,6 +10,7 @@ interface ArticleLayoutData {
     excerpt: string
     frontmatter: {
       title: string
+      date: string
       summary?: string
       stencilbot?: string
     }
@@ -20,7 +21,7 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
   data: { markdownRemark },
 }) => {
   const { excerpt } = markdownRemark
-  const { title, summary, stencilbot } = markdownRemark.frontmatter
+  const { title, summary, stencilbot, date } = markdownRemark.frontmatter
 
   return (
     <Layout>
@@ -31,6 +32,8 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
       />
 
       <article>
+        <Time date={new Date(date)} />
+
         <h1>{markdownRemark.frontmatter.title}</h1>
 
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
@@ -46,6 +49,7 @@ export const pageQuery = graphql`
       html
       excerpt
       frontmatter {
+        date
         title
         stencilbot
         summary

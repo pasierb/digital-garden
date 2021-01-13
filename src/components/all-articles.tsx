@@ -1,7 +1,15 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import Time from "./time"
+import "./all-articles.css"
 
-const MyFavorite = () => {
+const dateFormat = new Intl.DateTimeFormat("en-us", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+})
+
+const AllArticles = () => {
   const data = useStaticQuery(graphql`
     query AllArticlesComponent {
       articles: allMarkdownRemark(
@@ -12,6 +20,7 @@ const MyFavorite = () => {
           node {
             id
             frontmatter {
+              date
               title
               slug
             }
@@ -22,16 +31,20 @@ const MyFavorite = () => {
   `)
 
   return (
-    <ul>
-      {data.articles.edges.map(edge => (
-        <li key={edge.node.id}>
-          <Link to={edge.node.frontmatter.slug}>
-            {edge.node.frontmatter.title}
-          </Link>
-        </li>
-      ))}
+    <ul className="AllArticles">
+      {data.articles.edges.map(edge => {
+        return (
+          <li key={edge.node.id}>
+            <Time date={new Date(edge.node.frontmatter.date)} />
+
+            <Link to={edge.node.frontmatter.slug}>
+              {edge.node.frontmatter.title}
+            </Link>
+          </li>
+        )
+      })}
     </ul>
   )
 }
 
-export default MyFavorite
+export default AllArticles

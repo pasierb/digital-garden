@@ -25,9 +25,8 @@ const IndexPage = () => (
 
     <p>
       You can find more of me at <a href="https://github.com/pasierb">github</a>
-      , <a href="https://twitter.com/mpasierbski">twitter</a>,{" "}
-      <a href="https://www.linkedin.com/in/mpasierbski/">linkedin</a> and{" "}
-      <a href="https://www.instagram.com/mpasierbski/">instagram</a>.
+      , <a href="https://twitter.com/mpasierbski">twitter</a> and{" "}
+      <a href="https://www.linkedin.com/in/mpasierbski/">linkedin</a>.
     </p>
 
     <h2>Articles</h2>

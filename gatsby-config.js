@@ -3,6 +3,7 @@ module.exports = {
     title: `mpasierbski's 🗒️🌱`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `Michal Pasierbski`,
+    url: "https://mpasierbski.com"
   },
   plugins: [
     `gatsby-plugin-mdx`,
@@ -144,6 +145,12 @@ module.exports = {
         // Defers execution of google analytics script after page load
         defer: false,
       },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `mpasierbskicom`
+      }
     },
   ],
 }

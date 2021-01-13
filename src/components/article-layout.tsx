@@ -1,9 +1,15 @@
 import React, { FC } from "react"
 import { graphql, PageProps } from "gatsby"
+import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import SEO from "./seo"
 import Layout from "./layout"
-import Time from "./time";
+import Time from "./time"
 interface ArticleLayoutData {
+  site: {
+    siteMetadata: {
+      url: string
+    }
+  }
   markdownRemark: {
     id: string
     html: any
@@ -11,6 +17,7 @@ interface ArticleLayoutData {
     frontmatter: {
       title: string
       date: string
+      slug: string
       summary?: string
       stencilbot?: string
     }
@@ -18,10 +25,12 @@ interface ArticleLayoutData {
 }
 
 const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
-  data: { markdownRemark },
+  data: { markdownRemark, site },
 }) => {
   const { excerpt } = markdownRemark
-  const { title, summary, stencilbot, date } = markdownRemark.frontmatter
+  const { title, summary, stencilbot, date, slug } = markdownRemark.frontmatter
+
+  const articleUrl = new URL(slug, site.siteMetadata.url);
 
   return (
     <Layout>
@@ -38,18 +47,33 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
 
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
       </article>
+
+      <Disqus
+        config={{
+          /* Replace PAGE_URL with your post's canonical URL variable */
+          url: articleUrl.href,
+          identifier: slug,
+          title,
+        }}
+      />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query ArticleQuery($id: String) {
+    site {
+      siteMetadata {
+        url
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       id
       html
       excerpt
       frontmatter {
         date
+        slug
         title
         stencilbot
         summary

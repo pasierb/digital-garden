@@ -79,7 +79,6 @@ blockquote {
   border-left: 7px solid var(--section-border-color);
   font-style: italic;
   margin-left: 0;
-  padding: .5em;
 }
 
 .pure-button {
@@ -89,6 +88,10 @@ blockquote {
 
 .button-small {
   font-size: 75%;
+}
+
+article :not(pre) > code[class*="language-"] {
+  white-space: nowrap;
 }
 
 time {

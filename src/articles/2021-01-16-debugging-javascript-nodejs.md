@@ -3,6 +3,9 @@ title: 🐛 Debugging JavaScript (Node.js)
 date: 2021-01-16
 summary: assss
 slug: /debugging-javascript-nodejs
+images:
+- https://cdn.stencilbot.io/project?w=1300&h=650&0.bg=%23ffffff&1.x=150&1.y=75&1.w=1000&1.h=500&1.txt=Debugging%20JavaScript%20(Node.js)&1.color=%23c13e70&1.fontSize=60&1.font=DM%20Sans%3A700&1.txtAlign=center&1.valign=middle
+stencilbot: generic
 ---
 
 To paraphrase Theodore Roosevelt

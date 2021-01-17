@@ -3,6 +3,7 @@ title: How I learned how to listen and be listened to
 date: 2021-01-10
 summary: Nonviolent communication is a communication style that focuses on compassion, feelings, and needs. It is free of judgment, ambiguity, blame, and anger. This applies not only to people we communicate with but also (maybe even more importantly) to ourselves.
 slug: /how-i-learned-how-to-listen-and-be-listend-to
+stencilbot: generic
 ---
 
 ## Backstory

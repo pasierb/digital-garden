@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { Helmet } from "react-helmet"
+import { Helmet, MetaProps } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import { factory } from "../stencilbot"
 import stencilbotConfig from "../../stencilbot.config.json"
@@ -11,10 +11,7 @@ interface SEOProps {
   description?: string
   stencilbot?: string
   lang?: string
-  meta?: {
-    name: string
-    content: string
-  }[]
+  meta?: MetaProps[]
 }
 
 type SEOQueryData = {

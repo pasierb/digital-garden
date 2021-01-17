@@ -38,6 +38,15 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
         title={title}
         description={summary || excerpt}
         stencilbot={stencilbot}
+        meta={
+          [
+            {
+              name: "publish_date" ,
+              property: "og:publish_date",
+              content: new Date(date).toISOString()
+            },
+          ]
+        }
       />
 
       <article>

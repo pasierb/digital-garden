@@ -24,7 +24,7 @@ To use **Chrome DevTools debugger**:
 2. open chrome developer tools
 3. open node debugger
 
-![Chrome DevTools debugger](images/chrome-debugger-button.png)
+![Chrome DevTools debugger](/images/chrome-debugger-button.png)
 
 To set a breaking point just put `debugger` statement in the code
 

@@ -3,7 +3,7 @@ import React, { useRef } from "react"
 const Comments = () => {
   const ref = useRef<HTMLScriptElement>();
   const config = {
-    repo: "https://github.com/pasierb/digital-garden",
+    repo: "pasierb/digital-garden",
     label: "Comment",
     theme: "github-light",
     crossOrigin: "anonymous",

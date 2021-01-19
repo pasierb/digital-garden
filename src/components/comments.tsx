@@ -11,10 +11,6 @@ const Comments = () => {
   const ref = useRef<HTMLDivElement>();
 
   useEffect(() => {
-    if (ref.current.childNodes.length > 0) {
-      return;
-    }
-
     const scriptElement = document.createElement('script')
     scriptElement.setAttribute("src", "https://utteranc.es/client.js");
     scriptElement.setAttribute("async", "");
@@ -24,6 +20,7 @@ const Comments = () => {
       scriptElement.setAttribute(key, CONFIG[key]);
     }
 
+    ref.current.innerHTML = "";
     ref.current.appendChild(scriptElement);
   }, []);
 

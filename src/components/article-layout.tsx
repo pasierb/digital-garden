@@ -7,7 +7,7 @@ import Comments from "./comments"
 interface ArticleLayoutData {
   site: {
     siteMetadata: {
-      url: string
+      siteUrl: string
     }
   }
   markdownRemark: {
@@ -30,7 +30,7 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
   const { excerpt } = markdownRemark
   const { title, summary, stencilbot, date, slug } = markdownRemark.frontmatter
 
-  const articleUrl = new URL(slug, site.siteMetadata.url);
+  const articleUrl = new URL(slug, site.siteMetadata.siteUrl);
 
   return (
     <Layout>
@@ -66,7 +66,7 @@ export const pageQuery = graphql`
   query ArticleQuery($id: String) {
     site {
       siteMetadata {
-        url
+        siteUrl
       }
     }
     markdownRemark(id: { eq: $id }) {

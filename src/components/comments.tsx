@@ -7,7 +7,7 @@ const Comments = () => {
     label: "Comment",
     theme: "github-light",
     crossOrigin: "anonymous",
-    "issue-term": "pathname"
+    "issue-term": "title"
   }
 
   return (

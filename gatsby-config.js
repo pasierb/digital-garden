@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `mpasierbski's 🗒️🌱`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `This website is my personal space where I dump thoughts, mostly about engineering and self improvement. Writings that you will find here are sometimes raw, unpolished, even "work in progress". This format is inspired by the idea of a digital garden`,
     author: `Michal Pasierbski`,
     siteUrl: "https://mpasierbski.com",
   },
@@ -26,7 +26,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `static/images/icon-72x72.png`, // This path is relative to the root of the site.
+        icon: `static/images/icon-72x72.jpg`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

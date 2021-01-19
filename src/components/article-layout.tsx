@@ -1,9 +1,9 @@
 import React, { FC } from "react"
 import { graphql, PageProps } from "gatsby"
-import { Disqus, CommentCount } from "gatsby-plugin-disqus"
 import SEO from "./seo"
 import Layout from "./layout"
 import Time from "./time"
+import Comments from "./comments"
 interface ArticleLayoutData {
   site: {
     siteMetadata: {
@@ -57,14 +57,7 @@ const ArticleLayout: FC<PageProps<ArticleLayoutData>> = ({
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
       </article>
 
-      <Disqus
-        config={{
-          /* Replace PAGE_URL with your post's canonical URL variable */
-          url: articleUrl.href,
-          identifier: slug,
-          title,
-        }}
-      />
+      <Comments />
     </Layout>
   )
 }

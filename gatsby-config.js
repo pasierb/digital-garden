@@ -146,11 +146,5 @@ module.exports = {
         defer: false,
       },
     },
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `mpasierbskicom`
-      }
-    },
   ],
 }

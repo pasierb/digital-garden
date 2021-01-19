@@ -1,8 +1,10 @@
 import React from "react"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import AllArticles from "../components/all-articles"
+import GithubIcon from "../icons/github.svg";
+import LinkedInIcon from "../icons/linkedin.svg";
+import TwitterIcon from "../icons/twitter.svg";
 
 const IndexPage = () => (
   <Layout>
@@ -24,9 +26,9 @@ const IndexPage = () => (
     </p>
 
     <p>
-      You can find more of me at <a href="https://github.com/pasierb">github</a>
-      , <a href="https://twitter.com/mpasierbski">twitter</a> and{" "}
-      <a href="https://www.linkedin.com/in/mpasierbski/">linkedin</a>.
+      You can find more of me at <a href="https://github.com/pasierb"><GithubIcon title="GitHub" /></a>
+      , <a href="https://twitter.com/mpasierbski"><TwitterIcon title="Twitter" /></a> and{" "}
+      <a href="https://www.linkedin.com/in/mpasierbski/"><LinkedInIcon title="LinkedIn" /></a>.
     </p>
 
     <h2>Articles</h2>

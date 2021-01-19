@@ -11,11 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { SearchProvider } from "../components/search"
 import Header from "./header"
-
-import "purecss/build/pure.css"
-import "purecss/build/grids-responsive.css"
-import "@reach/dialog/styles.css"
-import "./layout.css"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -39,13 +35,8 @@ const Layout = ({ children }) => {
         </Helmet>
 
         <Header siteTitle={data.site.siteMetadata.title} />
-
         <main>{children}</main>
-
-        <footer>
-          Michal Pasierbski © {new Date().getFullYear()}, Built with{" "}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
       </div>
     </SearchProvider>
   )

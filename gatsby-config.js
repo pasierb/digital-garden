@@ -165,7 +165,10 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
-                const url = new URL(edge.node.frontmatter.slug, site.siteMetadata.siteUrl).href;
+                const url = new URL(
+                  edge.node.frontmatter.slug,
+                  site.siteMetadata.siteUrl
+                ).href
 
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
@@ -206,6 +209,20 @@ module.exports = {
             // link: "https://feeds.feedburner.com/gatsby/blog",
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /icons\/.*\.svg/,
+          omitKeys: ["width", "heigth"],
+          options: {
+            props: {
+              className: "icon",
+            },
+          },
+        },
       },
     },
   ],

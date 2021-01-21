@@ -65,7 +65,7 @@ const Search: FC<SearchProps> = ({
   }
 
   return (
-    <Dialog isOpen={isOpen} onDismiss={() => onClose()}>
+    <Dialog isOpen={isOpen} onDismiss={() => onClose()} aria-label="Search results">
       <button
         onClick={() => onClose()}
         className="pure-button button-secondary dialog-close"
@@ -77,6 +77,7 @@ const Search: FC<SearchProps> = ({
 
       <form className="pure-form pure-g">
         <input
+          aria-label="Search"
           ref={inputRef}
           defaultValue={defaultTerm}
           onChange={e => handleSearch(e.target.value)}

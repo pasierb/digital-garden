@@ -7,7 +7,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
-    <p>hey hey,</p>
+    <p>Hi,</p>
 
     <p>
       My name is Michał Pasierbski. I'm a software engineer at Amazon Web

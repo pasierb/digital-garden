@@ -6,6 +6,8 @@ module.exports = {
     siteUrl: "https://mpasierbski.com",
   },
   plugins: [
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-sitemap',
     `gatsby-plugin-mdx`,
     `gatsby-plugin-react-helmet`,
     {

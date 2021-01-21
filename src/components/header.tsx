@@ -25,6 +25,7 @@ const Header: FC<HeaderProps> = ({ siteTitle }) => {
             <nav>
               <form className="pure-form" ref={searchFormRef}>
                 <input
+                  aria-label="Search"
                   onChange={e => search(e.target.value)}
                   className="pure-input"
                   placeholder="🔎 Search"

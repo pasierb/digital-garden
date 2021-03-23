@@ -17,7 +17,7 @@ function compile(str: string, values: { [key: string]: any }): string {
 
     result.push(
       str.substring(p, i),
-      encodeURIComponent((values[key] + "").replace(emojiRegexp, ""))
+      encodeURIComponent((values[key] + ""))
     )
 
     p = j + 1
